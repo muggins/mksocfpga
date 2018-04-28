@@ -58,7 +58,21 @@ entity DE10_Nano_FB_DB25 is
         GPIO_0             : inout std_logic_vector(35 downto 0);
         GPIO_1             : inout std_logic_vector(35 downto 0);
 
-        --------- HPS ---------
+     	--------- HDMI ---------
+    	HDMI_I2C_SCL	   : inout std_logic;
+   	HDMI_I2C_SDA       : inout std_logic;
+    	HDMI_I2S           : inout std_logic;
+    	HDMI_LRCLK         : inout std_logic;
+    	HDMI_MCLK          : inout std_logic;
+    	HDMI_SCLK          : inout std_logic;
+  	HDMI_TX_CLK        : out   std_logic;
+ 	HDMI_TX_D          : out   std_logic_vector(23 downto 0);
+ 	HDMI_TX_DE         : out   std_logic;
+	HDMI_TX_HS         : out   std_logic;
+	HDMI_TX_INT        : in    std_logic;
+	HDMI_TX_VS         : out   std_logic;
+
+       --------- HPS ---------
         HPS_CONV_USB_N     : inout std_logic;
         HPS_DDR3_ADDR      : out   std_logic_vector(14 downto 0);
         HPS_DDR3_BA        : out   std_logic_vector( 2 downto 0);

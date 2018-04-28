@@ -40,7 +40,7 @@ set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSEBA6U23I7
 set_global_assignment -name TOP_LEVEL_ENTITY DE10_Nano_FB_DB25
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 14.0
-set_global_assignment -name LAST_QUARTUS_VERSION 15.1.2
+set_global_assignment -name LAST_QUARTUS_VERSION "17.1.0 Lite Edition"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:34:38  JANUARY 26, 2018"
 set_global_assignment -name DEVICE_FILTER_PACKAGE UFBGA
 set_global_assignment -name NUM_PARALLEL_PROCESSORS 2
@@ -796,9 +796,6 @@ set_global_assignment -name VHDL_FILE hostmot2_cfg.vhd
 set_global_assignment -name VERILOG_FILE I2C_HDMI_Config.v
 set_global_assignment -name VERILOG_FILE I2C_Controller.v
 set_global_assignment -name VERILOG_FILE I2C_WRITE_WDATA.v
-set_global_assignment -name QIP_FILE pll/sys_pll.qip
-set_global_assignment -name QIP_FILE pll/pll_reconfig.qip
-set_global_assignment -name QIP_FILE pll/pll.qip
 set_global_assignment -name VHDL_FILE "../../cv-ip/cv_ip_pkg.vhd"
 set_global_assignment -name VERILOG_FILE ../../cv-ip/edge_detect/altera_edge_detector.v
 set_global_assignment -name VERILOG_FILE ../../cv-ip/intr_capturer/intr_capturer.v
@@ -814,5 +811,7 @@ set_global_assignment -name SYSTEMVERILOG_FILE ../Common/gpio_adr_decoder_reg.sv
 set_global_assignment -name VHDL_FILE DE10_Nano_FB_DB25.vhd
 set_global_assignment -name CDF_FILE Chain1.cdf
 
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 
+
+
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
