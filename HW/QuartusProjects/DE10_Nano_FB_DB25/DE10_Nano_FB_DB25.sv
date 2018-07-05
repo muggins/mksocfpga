@@ -196,12 +196,12 @@ soc_system u0 (
     .clk_100mhz_out_clk(hm_clk_med),                            // clk_100mhz_out.clk
     .clk_200mhz_out_clk(hm_clk_high),                           // clk_100mhz_out.clk
     .dipsw_pio_export(SW),                                      //  dipsw_pio_external_connection.export
-//    .hps_0_f2h_cold_reset_req_reset_n(hps_fpga_reset_n),
-//    .hps_0_f2h_debug_reset_req_reset_n(hps_fpga_reset_n),
-    .hps_0_f2h_stm_hw_events_stm_hwevents(stm_hw_events),
-//    .hps_0_f2h_warm_reset_req_reset_n(hps_fpga_reset_n),
+    .hps_0_f2h_cold_reset_req_reset_n(hps_cold_reset),          //       hps_0_f2h_cold_reset_req.reset_n
+    .hps_0_f2h_debug_reset_req_reset_n(hps_debug_reset),        //      hps_0_f2h_debug_reset_req.reset_n
+    .hps_0_f2h_stm_hw_events_stm_hwevents(stm_hw_events),       //        hps_0_f2h_stm_hw_events.stm_hwevents
+    .hps_0_f2h_warm_reset_req_reset_n(hps_warm_reset),          //       hps_0_f2h_warm_reset_req.reset_n
     .hps_0_h2f_reset_reset_n(hps_fpga_reset_n),                 //                hps_0_h2f_reset.reset_n
-//    .pll_stream_locked_export              (),                  // pll_stream_locked.export
+//    .pll_stream_locked_export(pll_stream_locked_export),        // pll_stream_locked.export
     //HPS ddr3
     .memory_mem_a                          ( HPS_DDR3_ADDR),    // memory.mem_a
     .memory_mem_ba                         ( HPS_DDR3_BA),      //       .mem_ba
@@ -276,7 +276,7 @@ soc_system u0 (
     .hps_0_hps_io_hps_io_gpio_inst_GPIO54(HPS_KEY),             //             .hps_io_gpio_inst_GPIO54
     .hps_0_hps_io_hps_io_gpio_inst_GPIO61(HPS_GSENSOR_INT),     //             .hps_io_gpio_inst_GPIO61
     //FPGA Partition
-    .lcd_clk_clk                           (lcd_clk),           // lcd_clk.clk
+    .lcd_clk_clk(lcd_clk),                                      // lcd_clk.clk
     .led_pio_export(fpga_led_internal),                         //    led_pio_external_connection.export
     // hm2reg_io_0_conduit
     .mk_io_hm2_dataout(hm_datai),                               // hm2reg.hm2_dataout
@@ -284,12 +284,12 @@ soc_system u0 (
     .mk_io_hm2_address(hm_address),                             // .hm2_address
     //      mk_io_hm2_addrout                       => hm_addri,                -- .hm2_address
     //      mk_io_hm2_addrin                        => hm_addro,                -- .hm2_address
-    .mk_io_hm2_write(hm_write),                                 // .hm2_write
-    .mk_io_hm2_read(hm_read),                                   // .hm2_read
+    .mk_io_hm2_write(hm_write),                                 //                 .hm2_write
+    .mk_io_hm2_read(hm_read),                                   //                 .hm2_read
     //      mk_io_hm2_chipsel                       => hm_chipsel,              -- .hm2_chipsel
     //      mk_io_hm2_we                            => hm_chipsel,              -- .hm2_chipsel
-    .mk_io_hm2_int_in(irq),                                     // .hm2_int_in
-    .reset_reset_n                         (hps_fpga_reset_n)   //  reset.reset_n
+    .mk_io_hm2_int_in(irq),                                     //                 .hm2_int_in
+    .reset_reset_n(hps_fpga_reset_n)                            //            reset.reset_n
 );
 
 defparam top_io_modules_inst.KEY_WIDTH = 2;

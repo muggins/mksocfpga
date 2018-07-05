@@ -118,9 +118,9 @@ PRELOADER_DIR := $(SOFTWARE_DIR)/preloader
 
 AR_REGEX += \
 	Makefile ip readme.txt ds5 \
-	altera_avalon* *.qpf *.qsf *.sdc *.v *.sv *.vhd *.qsys *.tcl *.stp \
+	altera_avalon* *.qpf *.qsf *.sdc *.v *.sv *.vhd *.vhd.in *.qsys *.tcl *.stp \
 	*.sed quartus.ini *.sof *.rbf *.sopcinfo *.jdi output_files \
-	hps_isw_handoff */*.svd */synthesis/*.svd *.dts *.dtb *.xml *.sh *.ipx\
+	hps_isw_handoff */*.svd */synthesis/*.svd *.dts *.dtb *.xml *.sh *.ipx *.mif *.qip\
 	$(SOFTWARE_DIR)
 
 AR_FILTER_OUT += %_tb.qsys
@@ -190,7 +190,7 @@ $(error ERROR: QUARTUS_QPF *.qpf file not set and could not be discovered)
 endif
 QUARTUS_QSF := $(patsubst %.qpf,%.qsf,$(QUARTUS_QPF))
 QUARTUS_BASE := $(basename $(QUARTUS_QPF))
-QUARTUS_HDL_SOURCE := $(wildcard *.v *.sv *.vhd)
+QUARTUS_HDL_SOURCE := $(wildcard *.v *.sv *.vhd *.vhd.in)
 QUARTUS_MISC_SOURCE := $(wildcard *.stp *.sdc)
 
 QUARTUS_PIN_ASSIGNMENTS_STAMP := $(call get_stamp_target,quartus_pin_assignments)
