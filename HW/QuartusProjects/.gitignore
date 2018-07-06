@@ -83,3 +83,5 @@ software/
 stamp/
 # ignore qsys generated folder
 .qsys_edit/
+.DS_Store
+
